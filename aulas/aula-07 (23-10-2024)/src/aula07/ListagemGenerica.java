@@ -14,6 +14,8 @@ public class ListagemGenerica {
         listarArray(array1);
         Double[] array2 = new Double[] {7.2, 2.7, 9.1, 1.9, 10.7};
         listarArray(array2);
+        Character[] array3 = new Character[] {'A', 'l', 'e', 'x'};
+        listarArray(array3);
     }
 
 }
