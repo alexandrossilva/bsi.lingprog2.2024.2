@@ -19,7 +19,7 @@ public class RegistroFuncionario {
 		
 		try {
 			// abertura de fluxo de saída de arquivo
-			FileWriter fluxoArquivo = new FileWriter("funcionario.txt", true);
+			FileWriter fluxoArquivo = new FileWriter("funcionario.txt", false);
 			
 			// escrita de dados fornecidos de funcionário em arquivo
 			fluxoArquivo.write(nome + ' ' + salario + System.lineSeparator());
