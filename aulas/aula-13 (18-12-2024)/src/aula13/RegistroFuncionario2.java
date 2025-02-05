@@ -21,7 +21,7 @@ public class RegistroFuncionario2 {
 			System.out.print("Digite Operação (1-3): ");
 			op = scanner.nextInt();
 		} while (op != 3);
-		
+
 		scanner.close();
 	}
 
