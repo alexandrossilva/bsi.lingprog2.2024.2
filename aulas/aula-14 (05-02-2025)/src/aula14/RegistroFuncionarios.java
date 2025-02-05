@@ -1,10 +1,12 @@
 package aula14;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class RegistroFuncionarios {
 
@@ -14,6 +16,8 @@ public class RegistroFuncionarios {
 	public static void main(String[] args) {
 		int op;
 		scanner = new Scanner(System.in);
+		
+		lerFuncionarios();
 		
 		do {
 			System.out.println("********* OPERAÇÕES *********");
@@ -74,4 +78,34 @@ public class RegistroFuncionarios {
 		}		
 	}
 
+	public static void lerFuncionarios() {
+		FileReader fluxoLeitura = null;
+		try {
+			fluxoLeitura = new FileReader("funcionarios.txt");
+
+			Scanner scannerLeitura = new Scanner(fluxoLeitura);
+			
+			while (scannerLeitura.hasNext()) {
+				String linha = scannerLeitura.nextLine();
+				
+				StringTokenizer separador = new StringTokenizer(linha, "|");
+				
+				String nome = separador.nextToken();
+				double salario = Double.parseDouble(separador.nextToken());
+				
+				Funcionario func = new Funcionario(nome, salario);
+				
+				lista.add(func);
+			}
+
+			if (scannerLeitura != null)
+				scannerLeitura.close();
+
+			if (fluxoLeitura != null)
+				fluxoLeitura.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
+	
 }
