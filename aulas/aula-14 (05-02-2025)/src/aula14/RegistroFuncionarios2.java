@@ -1,14 +1,14 @@
 package aula14;
 
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class RegistroFuncionarios {
+public class RegistroFuncionarios2 {
 
 	private static List<Funcionario> lista = new ArrayList<Funcionario>();
 	private static Scanner scanner = null;
@@ -62,13 +62,12 @@ public class RegistroFuncionarios {
 	}
 
 	public static void gravarFuncionarios() {
-		FileWriter fluxoEscrita = null;
+		PrintWriter fluxoEscrita = null;
 		try {
-			fluxoEscrita = new FileWriter("funcionarios.txt");
+			fluxoEscrita = new PrintWriter("funcionarios.txt");
 
 			for (Funcionario func: lista) {
-				fluxoEscrita.write(func.getNome() + "|" + func.getSalario() +
-						System.lineSeparator());			
+				fluxoEscrita.println(func.getNome() + "|" + func.getSalario());			
 			}		
 			
 			if (fluxoEscrita != null)
